@@ -25,7 +25,7 @@ export const GlobalProvider = ({ children }) => {
   const getTracks = async () => {
     try {
       const res = await axios.get(
-        `/ws/1.1/chart.tracks.get?chart_name=top&page=1&page_size=10&country=us&f_has_lyrics=1&apikey=${key}`
+        `https://api.musixmatch.com/ws/1.1/chart.tracks.get?chart_name=top&page=1&page_size=10&country=us&f_has_lyrics=1&apikey=${key}`
       );
 
       dispatch({
@@ -40,7 +40,7 @@ export const GlobalProvider = ({ children }) => {
   const searchTracks = async (trackTitle) => {
     try {
       const res = await axios.get(
-        `/ws/1.1/track.search?q_track=${trackTitle}&page_size=3&page=1&s_track_rating=desc&apikey=${key}`
+        `https://api.musixmatch.com/ws/1.1/track.search?q_track=${trackTitle}&page_size=3&page=1&s_track_rating=desc&apikey=${key}`
       );
 
       dispatch({
