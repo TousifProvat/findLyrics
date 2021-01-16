@@ -1,5 +1,6 @@
 {
   "name": "lyricsfinder_react",
+  "homepage": "https://tousifprovat.github.io/findLyrics",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
