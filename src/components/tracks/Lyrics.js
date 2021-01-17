@@ -13,7 +13,7 @@ export const Lyrics = (props) => {
   async function getLyric() {
     try {
       const lyrics = await axios.get(
-        `/ws/1.1/track.lyrics.get?track_id=${props.match.params.id}&apikey=${KEY}`
+        `https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=${props.match.params.id}&apikey=${KEY}`
       );
 
       if (lyrics.data.message.body.lyrics === undefined) {
@@ -29,7 +29,7 @@ export const Lyrics = (props) => {
   async function getTrack() {
     try {
       const track = await axios.get(
-        `/ws/1.1/track.get?track_id=${props.match.params.id}&apikey=${KEY}`
+        `https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.get?track_id=${props.match.params.id}&apikey=${KEY}`
       );
 
       if (track.data.message.body.track === undefined) {
@@ -48,8 +48,6 @@ export const Lyrics = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(lyrics);
-
   if (
     track === undefined ||
     lyrics === undefined ||
@@ -59,7 +57,7 @@ export const Lyrics = (props) => {
     return (
       <Spinner
         component={
-          <Link to="/" className="btn btn-dark btn-sm mb-4">
+          <Link to="/findLyrics" className="btn btn-dark btn-sm mb-4">
             Go Back
           </Link>
         }
@@ -68,7 +66,7 @@ export const Lyrics = (props) => {
   } else {
     return (
       <>
-        <Link to="/" className="btn btn-dark btn-sm mb-4">
+        <Link to="/findLyrics" className="btn btn-dark btn-sm mb-4">
           Go Back
         </Link>
         <div className="card">

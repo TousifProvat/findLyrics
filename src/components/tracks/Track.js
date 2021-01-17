@@ -19,7 +19,7 @@ export const Track = ({ track }) => {
             : {track.album_name}
           </p>
           <Link
-            to={`track/lyrics/${track.track_id}`}
+            to={`/findLyrics/track/lyrics/${track.track_id}`}
             className="btn btn-dark btn-block"
           >
             <i className="fas fa-chevron-right"></i> View lyrics
